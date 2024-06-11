@@ -21,4 +21,18 @@ class TaskManagerRepositoryImpl @Inject constructor(
             }
         }
     }
+
+    override suspend fun getTasks(): List<TaskModel> {
+        return withContext(Dispatchers.IO) {
+            try {
+                taskDao.getAll()?.let{ tasks ->
+                    tasks.map { it.convertToTaskModel() }
+                } ?: emptyList()
+            } catch (e: Exception){
+                e.printStackTrace()
+                emptyList<TaskModel>()
+            }
+
+        }
+    }
 }

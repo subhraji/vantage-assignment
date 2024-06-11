@@ -22,10 +22,21 @@
         <action
             android:id="@+id/action_taskListFragment_to_createTaskFragment"
             app:destination="@id/createTaskFragment" />
+        <action
+            android:id="@+id/action_taskListFragment_to_taskDetailsFragment"
+            app:destination="@id/taskDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/createTaskFragment"
         android:name="com.example.assignmentapp.presentation.fragment.task_manager.create.CreateTaskFragment"
         android:label="fragment_create_task"
         tools:layout="@layout/fragment_create_task" />
+    <dialog
+        android:id="@+id/taskDetailsFragment"
+        android:name="com.example.assignmentapp.presentation.fragment.task_manager.TaskDetailsFragment"
+        android:label="TaskDetailsFragment" >
+        <argument
+            android:name="taskModel"
+            app:argType="com.example.assignmentapp.data.remote.model.TaskModel" />
+    </dialog>
 </navigation>

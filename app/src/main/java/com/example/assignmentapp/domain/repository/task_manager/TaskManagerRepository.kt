@@ -7,4 +7,6 @@ interface TaskManagerRepository : BaseRepository {
 
     suspend fun saveTask(taskModel: TaskModel) : Long
 
+    suspend fun getTasks() : List<TaskModel>
+
 }

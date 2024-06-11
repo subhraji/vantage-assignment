@@ -12,4 +12,8 @@ class TaskManagerUseCae @Inject constructor(
         return taskManagerRepository.saveTask(taskModel = taskModel)
     }
 
+    suspend fun getTasks() : List<TaskModel> {
+        return taskManagerRepository.getTasks()
+    }
+
 }
