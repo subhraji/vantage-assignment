@@ -28,7 +28,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.taskManagerBtn.setOnClickListener {
-            //findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTaskListFragment())
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTaskListFragment())
         }
     }
 }
