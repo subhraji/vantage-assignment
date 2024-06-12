@@ -9,7 +9,7 @@ import kotlinx.parcelize.RawValue
 @Keep
 @Parcelize
 data class ErrorResponse(
-    val status: Int,
+    val cod: Int,
     val message: String? = "Something went wrong ! Please try again later.",
     val errors: @RawValue JsonElement? = null
 ) : Parcelable

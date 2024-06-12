@@ -10,8 +10,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import com.example.assignmentapp.R
-import com.example.assignmentapp.data.remote.model.TaskModel
+import com.example.assignmentapp.data.remote.model.task.TaskModel
 import com.example.assignmentapp.databinding.FragmentCreateTaskBinding
 import com.example.assignmentapp.presentation.fragment.task_manager.create.event.CreateTaskFragmentEvent
 import com.example.assignmentapp.presentation.fragment.task_manager.create.state.CreateTaskFragmentState

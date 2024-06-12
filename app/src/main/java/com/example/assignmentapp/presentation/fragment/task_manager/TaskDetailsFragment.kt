@@ -1,16 +1,12 @@
 package com.example.assignmentapp.presentation.fragment.task_manager
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.assignmentapp.R
-import com.example.assignmentapp.data.remote.model.TaskModel
+import com.example.assignmentapp.data.remote.model.task.TaskModel
 import com.example.assignmentapp.databinding.FragmentTaskDetailsBinding
-import com.example.assignmentapp.databinding.FragmentTaskListBinding
 import com.example.assignmentapp.utils.convertToDate
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 

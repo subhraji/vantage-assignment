@@ -31,5 +31,9 @@ class HomeFragment : Fragment() {
         binding.taskManagerBtn.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTaskListFragment())
         }
+
+        binding.weatherBtn.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSearchWeatherFragment())
+        }
     }
 }

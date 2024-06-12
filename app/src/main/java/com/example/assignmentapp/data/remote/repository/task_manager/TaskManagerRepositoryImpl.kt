@@ -1,6 +1,6 @@
 package com.example.assignmentapp.data.remote.repository.task_manager
 
-import com.example.assignmentapp.data.remote.model.TaskModel
+import com.example.assignmentapp.data.remote.model.task.TaskModel
 import com.example.assignmentapp.db.dao.TaskDao
 import com.example.assignmentapp.domain.repository.task_manager.TaskManagerRepository
 import kotlinx.coroutines.Dispatchers

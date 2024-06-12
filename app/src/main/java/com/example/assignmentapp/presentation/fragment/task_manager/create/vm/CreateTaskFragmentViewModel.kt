@@ -2,7 +2,7 @@ package com.example.assignmentapp.presentation.fragment.task_manager.create.vm
 
 import androidx.lifecycle.viewModelScope
 import com.example.assignmentapp.base.BaseViewModel
-import com.example.assignmentapp.data.remote.model.TaskModel
+import com.example.assignmentapp.data.remote.model.task.TaskModel
 import com.example.assignmentapp.domain.usecase.task_manager.TaskManagerUseCae
 import com.example.assignmentapp.presentation.fragment.task_manager.create.event.CreateTaskFragmentEvent
 import com.example.assignmentapp.presentation.fragment.task_manager.create.state.CreateTaskFragmentState

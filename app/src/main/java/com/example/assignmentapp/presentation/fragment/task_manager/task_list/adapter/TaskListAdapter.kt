@@ -1,13 +1,11 @@
 package com.example.assignmentapp.presentation.fragment.task_manager.task_list.adapter
 
-import android.text.SpannableStringBuilder
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.text.bold
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.assignmentapp.data.remote.model.TaskModel
+import com.example.assignmentapp.data.remote.model.task.TaskModel
 import com.example.assignmentapp.databinding.TaskListItemLayoutBinding
 import com.example.assignmentapp.utils.convertToDate
 import javax.inject.Inject

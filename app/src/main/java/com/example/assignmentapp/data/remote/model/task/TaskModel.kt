@@ -1,4 +1,4 @@
-package com.example.assignmentapp.data.remote.model
+package com.example.assignmentapp.data.remote.model.task
 
 import android.os.Parcelable
 import com.example.assignmentapp.db.entity.TaskModelEntity

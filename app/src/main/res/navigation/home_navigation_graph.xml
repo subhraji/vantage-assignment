@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_taskListFragment"
             app:destination="@id/taskListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchWeatherFragment"
+            app:destination="@id/searchWeatherFragment" />
     </fragment>
     <fragment
         android:id="@+id/taskListFragment"
@@ -37,6 +40,22 @@
         android:label="TaskDetailsFragment" >
         <argument
             android:name="taskModel"
-            app:argType="com.example.assignmentapp.data.remote.model.TaskModel" />
+            app:argType="com.example.assignmentapp.data.remote.model.task.TaskModel" />
     </dialog>
+    <fragment
+        android:id="@+id/searchWeatherFragment"
+        android:name="com.example.assignmentapp.presentation.fragment.weather.search_city.SearchWeatherFragment"
+        android:label="SearchWeatherFragment" >
+        <action
+            android:id="@+id/action_searchWeatherFragment_to_weatherResultFragment"
+            app:destination="@id/weatherResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/weatherResultFragment"
+        android:name="com.example.assignmentapp.presentation.fragment.weather.weather_result.WeatherResultFragment"
+        android:label="WeatherResultFragment" >
+        <argument
+            android:name="cityName"
+            app:argType="string" />
+    </fragment>
 </navigation>

@@ -1,7 +1,9 @@
 package com.example.assignmentapp.di
 
 import com.example.assignmentapp.data.remote.repository.task_manager.TaskManagerRepositoryImpl
+import com.example.assignmentapp.data.remote.repository.weather.WeatherRepositoryImpl
 import com.example.assignmentapp.domain.repository.task_manager.TaskManagerRepository
+import com.example.assignmentapp.domain.repository.weather.WeatherRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,4 +18,10 @@ object ViewModelModule {
     fun provideTaskManagerRepository(
         taskManagerRepositoryImpl: TaskManagerRepositoryImpl
     ): TaskManagerRepository = taskManagerRepositoryImpl
+
+    @Provides
+    @ViewModelScoped
+    fun provideWeatherRepository(
+        weatherRepositoryImpl: WeatherRepositoryImpl
+    ): WeatherRepository = weatherRepositoryImpl
 }

@@ -2,7 +2,7 @@ package com.example.assignmentapp.db.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.assignmentapp.data.remote.model.TaskModel
+import com.example.assignmentapp.data.remote.model.task.TaskModel
 
 @Entity(tableName = "task")
 data class TaskModelEntity(

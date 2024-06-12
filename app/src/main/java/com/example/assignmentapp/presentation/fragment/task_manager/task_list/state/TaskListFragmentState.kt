@@ -1,6 +1,6 @@
 package com.example.assignmentapp.presentation.fragment.task_manager.task_list.state
 
-import com.example.assignmentapp.data.remote.model.TaskModel
+import com.example.assignmentapp.data.remote.model.task.TaskModel
 
 sealed class TaskListFragmentState {
     data class GetTasksResponse(
