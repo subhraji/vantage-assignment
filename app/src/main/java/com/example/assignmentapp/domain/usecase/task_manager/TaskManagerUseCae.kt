@@ -16,4 +16,7 @@ class TaskManagerUseCae @Inject constructor(
         return taskManagerRepository.getTasks()
     }
 
+    suspend fun deleteTask(taskModel: TaskModel) {
+        taskManagerRepository.deleteTask(taskModel = taskModel)
+    }
 }

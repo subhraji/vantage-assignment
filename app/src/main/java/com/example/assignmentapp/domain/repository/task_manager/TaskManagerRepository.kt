@@ -9,4 +9,7 @@ interface TaskManagerRepository : BaseRepository {
 
     suspend fun getTasks() : List<TaskModel>
 
+    suspend fun deleteTask(taskModel: TaskModel)
+
+
 }

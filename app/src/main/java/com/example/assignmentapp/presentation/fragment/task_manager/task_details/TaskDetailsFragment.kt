@@ -1,4 +1,4 @@
-package com.example.assignmentapp.presentation.fragment.task_manager
+package com.example.assignmentapp.presentation.fragment.task_manager.task_details
 
 import android.os.Bundle
 import android.view.LayoutInflater

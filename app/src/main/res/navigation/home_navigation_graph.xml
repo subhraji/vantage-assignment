@@ -36,7 +36,7 @@
         tools:layout="@layout/fragment_create_task" />
     <dialog
         android:id="@+id/taskDetailsFragment"
-        android:name="com.example.assignmentapp.presentation.fragment.task_manager.TaskDetailsFragment"
+        android:name="com.example.assignmentapp.presentation.fragment.task_manager.task_details.TaskDetailsFragment"
         android:label="TaskDetailsFragment" >
         <argument
             android:name="taskModel"

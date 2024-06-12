@@ -19,6 +19,10 @@ class TaskListFragmentViewModel @Inject constructor(
             is TaskListFragmentEvent.GetTasks -> {
                 getTasks()
             }
+
+            is TaskListFragmentEvent.DeleteTask -> {
+                deleteTask(event)
+            }
         }
     }
 
@@ -30,6 +34,15 @@ class TaskListFragmentViewModel @Inject constructor(
                 state = TaskListFragmentState.GetTasksResponse(
                     response = response
                 )
+            )
+        }
+    }
+
+    private fun deleteTask(event: TaskListFragmentEvent.DeleteTask){
+        viewModelScope.launch(Dispatchers.IO){
+            taskManagerUseCae.deleteTask(taskModel = event.taskModel)
+            sendState(
+                state = TaskListFragmentState.DeleteTaskResponse
             )
         }
     }

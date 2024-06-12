@@ -44,6 +44,13 @@ class TaskListAdapter @Inject constructor() :
         return differ.currentList.size
     }
 
+    fun removeItem(position: Int) {
+        val currentList = differ.currentList.toMutableList()
+        currentList.removeAt(position)
+        differ.submitList(currentList)
+        //notifyItemRemoved(position)
+    }
+
     override fun onBindViewHolder(holder: TaskListAdapter.ViewHolder, position: Int) {
         val data = differ.currentList[position]
 

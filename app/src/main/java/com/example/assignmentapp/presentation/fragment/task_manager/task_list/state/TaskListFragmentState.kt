@@ -6,4 +6,6 @@ sealed class TaskListFragmentState {
     data class GetTasksResponse(
         val response: List<TaskModel>
     ) : TaskListFragmentState()
+
+    object DeleteTaskResponse : TaskListFragmentState()
 }

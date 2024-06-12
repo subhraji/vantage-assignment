@@ -1,5 +1,6 @@
 package com.example.assignmentapp.data.remote.repository.task_manager
 
+import android.util.Log
 import com.example.assignmentapp.data.remote.model.task.TaskModel
 import com.example.assignmentapp.db.dao.TaskDao
 import com.example.assignmentapp.domain.repository.task_manager.TaskManagerRepository
@@ -33,6 +34,16 @@ class TaskManagerRepositoryImpl @Inject constructor(
                 emptyList<TaskModel>()
             }
 
+        }
+    }
+
+    override suspend fun deleteTask(taskModel: TaskModel) {
+        withContext(Dispatchers.IO) {
+            try {
+                taskDao.deleteTaskById(taskModel.id!!.toLong())
+            } catch (e: Exception){
+                e.printStackTrace()
+            }
         }
     }
 }
