@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.assignmentapp.presentation.fragment.home.HomeFragment"
-        android:label="fragment_home"
+        android:label="Home"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_taskListFragment"
@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/taskListFragment"
         android:name="com.example.assignmentapp.presentation.fragment.task_manager.task_list.TaskListFragment"
-        android:label="fragment_task_list"
+        android:label="Tasks"
         tools:layout="@layout/fragment_task_list" >
         <action
             android:id="@+id/action_taskListFragment_to_createTaskFragment"
@@ -32,7 +32,7 @@
     <fragment
         android:id="@+id/createTaskFragment"
         android:name="com.example.assignmentapp.presentation.fragment.task_manager.create.CreateTaskFragment"
-        android:label="fragment_create_task"
+        android:label="Create New Task"
         tools:layout="@layout/fragment_create_task" />
     <dialog
         android:id="@+id/taskDetailsFragment"
@@ -45,7 +45,7 @@
     <fragment
         android:id="@+id/searchWeatherFragment"
         android:name="com.example.assignmentapp.presentation.fragment.weather.search_city.SearchWeatherFragment"
-        android:label="SearchWeatherFragment" >
+        android:label="Search Weather" >
         <action
             android:id="@+id/action_searchWeatherFragment_to_weatherResultFragment"
             app:destination="@id/weatherResultFragment" />
@@ -53,7 +53,7 @@
     <fragment
         android:id="@+id/weatherResultFragment"
         android:name="com.example.assignmentapp.presentation.fragment.weather.weather_result.WeatherResultFragment"
-        android:label="WeatherResultFragment" >
+        android:label="Weather" >
         <argument
             android:name="cityName"
             app:argType="string" />

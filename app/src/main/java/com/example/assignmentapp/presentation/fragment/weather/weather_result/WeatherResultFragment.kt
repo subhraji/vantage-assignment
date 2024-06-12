@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -46,6 +47,9 @@ class WeatherResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val cityName = navArgs<WeatherResultFragmentArgs>().value.cityName
+        binding.weatherReportHtv.text = "Weather of ${cityName} :"
+
+        startShimmer()
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -81,8 +85,20 @@ class WeatherResultFragment : Fragment() {
             return
         }
 
+        stopShimmer()
         val weather = state.response?.data?.weather?.first()?.main
         binding.weatherReportTv.text = "Weather : ${weather}"
     }
 
+    private fun startShimmer(){
+        binding.realLayout.isVisible = false
+        binding.shimmerLayout.isVisible = true
+        binding.shimmerLayout.startShimmer()
+    }
+
+    private fun stopShimmer(){
+        binding.realLayout.isVisible = true
+        binding.shimmerLayout.isVisible = false
+        binding.shimmerLayout.stopShimmer()
+    }
 }

@@ -1,9 +1,11 @@
 package com.example.assignmentapp.presentation.fragment.task_manager.task_details
 
 import android.os.Bundle
+import android.text.SpannableStringBuilder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.text.bold
 import androidx.navigation.fragment.navArgs
 import com.example.assignmentapp.data.remote.model.task.TaskModel
 import com.example.assignmentapp.databinding.FragmentTaskDetailsBinding
@@ -38,7 +40,9 @@ class TaskDetailsFragment : BottomSheetDialogFragment() {
     private fun renderUi(){
         binding.taskTitleTv.text = taskModel.title
         binding.taskDescriptionTv.text = taskModel.description
-        binding.timeTv.text = convertToDate(taskModel.createdAt!!, "dd/MM/yyyy hh:mm:ss")
+        binding.timeTv.text = SpannableStringBuilder()
+            .bold { append("Date : ") }
+            .append(convertToDate(taskModel.createdAt!!, "dd/MM/yyyy hh:mm:ss"))
 
         binding.doneBtn.setOnClickListener {
             dismiss()
