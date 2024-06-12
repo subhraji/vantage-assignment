@@ -1,10 +1,12 @@
 package com.example.assignmentapp.presentation.fragment.weather.weather_result
 
 import android.os.Bundle
+import android.text.SpannableStringBuilder
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.text.bold
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -82,12 +84,23 @@ class WeatherResultFragment : Fragment() {
             Snackbar.make(binding.root, "${message}}",
                 Snackbar.LENGTH_SHORT).setAction("Action", null)
                 .show()
+            renderError(message)
             return
         }
 
         stopShimmer()
-        val weather = state.response?.data?.weather?.first()?.main
-        binding.weatherReportTv.text = "Weather : ${weather}"
+        val weather = state.response?.data?.weather?.first()
+        binding.weatherReportTv.text = SpannableStringBuilder()
+            .bold { append("Weather : ") }
+            .append("${weather?.main} | ${weather?.description}")
+            .bold { append("\nTemperature : ") }
+            .append("${state.response.data?.main?.temp}°C")
+            .bold { append("\nFeels like : ") }
+            .append("${state.response.data?.main?.feels_like}°C")
+            .bold { append("\nHumidity : ") }
+            .append("${state.response.data?.main?.humidity}%")
+            .bold { append("\nPressure : ") }
+            .append("${state.response.data?.main?.pressure}")
     }
 
     private fun startShimmer(){
@@ -100,5 +113,12 @@ class WeatherResultFragment : Fragment() {
         binding.realLayout.isVisible = true
         binding.shimmerLayout.isVisible = false
         binding.shimmerLayout.stopShimmer()
+    }
+
+    private fun renderError(msg: String){
+        binding.errorView.root.isVisible = true
+        binding.realLayout.isVisible = false
+        binding.shimmerLayout.isVisible = false
+        binding.errorView.msgView.text = msg
     }
 }

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -113,19 +114,20 @@ class TaskListFragment : Fragment() {
             is TaskListFragmentState.DeleteTaskResponse -> {
 
                 Snackbar.make(binding.root, "Successfully deleted the task.", Snackbar.LENGTH_LONG).apply {
-                    setAction("Ok"){
-                        //viewModel.addEvent(TaskListFragmentEvent.(taskModel = taskModel))
-                    }
+                    setAction("Ok"){}
                 }.show()
             }
         }
     }
 
     private fun handleGetTasksResponse(state: TaskListFragmentState.GetTasksResponse) {
-        if (state.response.isNotEmpty()) {
-            state.response?.let {
-                mTaskListAdapter.differ.submitList(it)
-            }
+        if (state.response.isEmpty()) {
+            renderError("No task found.")
+            return
+        }
+
+        state.response?.let {
+            mTaskListAdapter.differ.submitList(it)
         }
     }
 
@@ -134,5 +136,11 @@ class TaskListFragment : Fragment() {
             adapter = mTaskListAdapter
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         }
+    }
+
+    private fun renderError(msg: String){
+        binding.errorView.root.isVisible = true
+        binding.taskListRecycler.isVisible = false
+        binding.errorView.msgView.text = msg
     }
 }
