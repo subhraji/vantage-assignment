@@ -16,8 +16,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:visibility="visible">
+
             <include layout="@layout/weather_details_shimmer_layout" />
         </com.facebook.shimmer.ShimmerFrameLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/realLayout"
             android:layout_width="match_parent"
@@ -29,7 +31,7 @@
                 android:id="@+id/weatherImage"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:src="@drawable/cloud"
+                android:src="@drawable/weather_icon"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -62,8 +64,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:visibility="gone"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:visibility="gone" />
 
 
     </FrameLayout>

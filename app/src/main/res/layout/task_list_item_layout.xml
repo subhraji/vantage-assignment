@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:maxLines="2"
-                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textAppearance="?attr/textAppearanceBodySmall"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/descriptionTv" />
