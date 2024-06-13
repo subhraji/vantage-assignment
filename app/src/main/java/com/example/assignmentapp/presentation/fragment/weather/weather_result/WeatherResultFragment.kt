@@ -2,21 +2,20 @@ package com.example.assignmentapp.presentation.fragment.weather.weather_result
 
 import android.os.Bundle
 import android.text.SpannableStringBuilder
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.text.bold
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.example.assignmentapp.BuildConfig
 import com.example.assignmentapp.R
-import com.example.assignmentapp.data.remote.model.ResponseStatus
-import com.example.assignmentapp.databinding.FragmentSearchWeatherBinding
 import com.example.assignmentapp.databinding.FragmentWeatherResultBinding
 import com.example.assignmentapp.presentation.fragment.weather.weather_result.event.WeatherResultFragmentEvent
 import com.example.assignmentapp.presentation.fragment.weather.weather_result.state.WeatherResultFragmentState
@@ -81,7 +80,7 @@ class WeatherResultFragment : Fragment() {
     private fun handleWeatherDataResponse(state: WeatherResultFragmentState.WeatherResultResponse){
         if(state.response.isFailed()){
             val message = state.message ?: state.response.message ?: "Something went wrong"
-            Snackbar.make(binding.root, "${message}}",
+            Snackbar.make(binding.root, "${message}",
                 Snackbar.LENGTH_SHORT).setAction("Action", null)
                 .show()
             renderError(message)
@@ -101,6 +100,13 @@ class WeatherResultFragment : Fragment() {
             .append("${state.response.data?.main?.humidity}%")
             .bold { append("\nPressure : ") }
             .append("${state.response.data?.main?.pressure}")
+
+        val iconUrl = "http://openweathermap.org/img/w/${weather?.icon}.png"
+        Glide.with(requireActivity())
+            .load(iconUrl)
+            .centerCrop()
+            .placeholder(R.color.shimmerColor)
+            .into(binding.weatherImage)
     }
 
     private fun startShimmer(){

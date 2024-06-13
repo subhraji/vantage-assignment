@@ -29,12 +29,12 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/weatherImage"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:src="@drawable/weather_icon"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:scaleType="centerCrop"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/weatherReportHtv"
